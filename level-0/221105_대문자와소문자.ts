@@ -1,4 +1,4 @@
-const solution = (my_string : String) => {
+const solution = (my_string : string) => {
   let answer = '';
   let array = Array.from(my_string);
   

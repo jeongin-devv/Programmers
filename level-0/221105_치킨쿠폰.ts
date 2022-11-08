@@ -1,14 +1,25 @@
-const solution = (i : number, j : number, k : number) => {
+const solution = (chicken) => {
   let answer = 0;
-  let temp : string = '';
+// recursion
+  const calc = (num) => {
+      if( num < 10) return 0;
+      const chick = Math.floor(num / 10);
+    
+      return chick + calc(chick + (num % 10));
+  }
+
+  answer = calc(chicken);
+
+// 탐색
+  let coupon = chicken;
   
-  for(let l = i; l <= j; l++){
-      temp += l;
-  };
-  
-  answer = Array.from(temp).filter(
-    (num) => num === k.toString()
-  ).length;
+  while(coupon >= 10){
+       const temp = Math.floor(coupon/10);
+      
+       coupon = coupon%10 + temp;
+       answer+=temp;
+       
+  }
   
   return answer;
 }

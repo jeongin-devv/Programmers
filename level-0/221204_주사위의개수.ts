@@ -1,13 +1,10 @@
-const solution = (n : number) => {
-    let answer = 0;
-    const arr = new Set();
-    for(let i = 2; i <= n; i++){
-        for(let j = 2; j < i; j++){
-            if(i % j === 0) arr.add(i);
-        }
-    }
+const solution = (box: number[], n : number) => {
+    let answer = 1;
+    const nBox = [n,n,n];
     
-    answer = arr.size;
+    box.forEach((e, i) => {
+        answer *= Math.floor(box[i]/nBox[i]);
+    });
     
     return answer;
 }

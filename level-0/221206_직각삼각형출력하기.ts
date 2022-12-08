@@ -1,12 +1,25 @@
-const solution = (num_list : number[]) => {
-    const answer = [0,0];
+const solution = () => {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
 
-    num_list.forEach((num) => {
-        if(num%2===0) answer[0]++;
-        else answer[1]++;
-    })
+    let input = [];
 
-    return answer;
+    rl.on('line', function (line) {
+        input = line.split(' ');
+    }).on('close', function () {
+        const num = Number(input[0]);
+        let result = '';
+        for(let i = 0; i < num; i++) {
+            for(let j = 0; j <= i; j++){
+                result += '*';
+            }
+            result += '\n';
+        }
+        console.log(result);
+    });
 }
 
 export default solution;
